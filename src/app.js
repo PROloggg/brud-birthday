@@ -34,6 +34,7 @@ cheer = {
         let live = 3
         if (getCookie('live')) {
             live = parseInt(getCookie('live'))
+            console.log(live)
         }
         let step = 0
         if ($_GET('round') == '2') {
