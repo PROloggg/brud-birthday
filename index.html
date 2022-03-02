@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="img/bg.jpg"/>
+
+    <link rel="shortcut icon" href="src/img/favicon.ico" type="image/png">
+
+    <title>ДР Аньки</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="src/app.js"></script>
+    <link href="src/funky_radio.css" rel="stylesheet">
+    <link href="src/style.css" rel="stylesheet">
+
+</head>
+<body>
+<div id="app" class="main">
+
+    <div id="load">
+        <div class="logo col-md-12"><a href="/">Загружаем 🎁 подарочки</a></div>
+        <div class="load-spinner">
+            <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+
+    <div class="container hide" id="container">
+        <div class="row">
+            <div class="logo col-md-12"><a href="/">День рождения 🥳</a></div>
+            <div class="col-md-12 alert alert-danger text-right">
+                Чтобы получить свои подарочки на <br>
+                <b>День Рождения и на 8 Марта</b><br>
+                ты должна доказать что именно <b>ТЫ</b> это Анька Бруд!<br>
+                Для этого ответь на вопросы правильно. Удачи)
+            </div>
+        </div>
+
+        <div class="text-success text-center" style="background: rgba(255,255,255,0.7); font-size: 30px">Осталось
+            попыток: <b style="font-size: 40px">{{live}}</b> 💀 </div>
+
+        <div class="panel question-block">
+            <div class="panel-heading" v-if="!isFinish">{{questions[step].question}}</div>
+            <div v-else class="panel-heading text-center">
+                <h2>Ты {{result.title}}!</h2>
+            </div>
+
+            <div class="panel-body">
+                <div class="funkyradio" v-for="(question, qIndex) in questions"
+                     v-if="!isFinish"
+                     v-show="qIndex == step">
+                    <div class="funkyradio-success"
+                         :id="qIndex+'_'+vIndex+'_checkbox'"
+                         v-for="(variant, vIndex) in question.answers">
+                        <input type="radio"
+                               name="radio"
+                               :id="qIndex+'_'+vIndex"
+                               @change="checked"
+                               :value="variant.code"
+                        />
+                        <label :for="qIndex+'_'+vIndex">{{variant.text}}</label>
+                    </div>
+                </div>
+
+                <div class="row" v-if="isFinish">
+                    <div class="col-sm-6 photo">
+                        <img :src="result.img"/>
+                    </div>
+                    <div class="col-sm-6 result-text">
+                        {{result.text}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
