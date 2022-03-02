@@ -44,7 +44,7 @@ cheer = {
                 el: '#app',
                 data: {
                     step: step,
-                    live: 3,
+                    live: live,
                     questions: [
                         {
                             question: 'Где мы познакомились?',
