@@ -26,6 +26,7 @@ cheer = {
         setTimeout(function () {
             document.getElementById('container').classList.remove('hide')
             document.getElementById('load').classList.add('hide')
+            document.getElementById('load-text').classList.add('hide')
         }, 5000)
 
         if (getCookie('try') === 'false') {
@@ -184,7 +185,12 @@ cheer = {
                             }
                         } else {
                             Vue.set(app.userAnswers, step, code)
-                            app.nextStep(app.questions[step].gift === true)
+                            document.getElementById('load').classList.remove('hide')
+                            setTimeout(function() {
+                                document.getElementById('load').classList.add('hide')
+                                app.nextStep(app.questions[step].gift === true)
+                            }, 1000)
+
                         }
                     },
                     nextStep: function (gift) {
