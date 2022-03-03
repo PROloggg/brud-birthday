@@ -33,6 +33,7 @@
 .question-block {
     background: unset;
     margin-top: 5%;
+    box-shadow: unset;
 }
 
 img {
@@ -47,6 +48,13 @@ img {
 .result-text {
     font-weight: bold;
     font-size: 18px;
+}
+
+
+.funkyradio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
 }
 
 .funkyradio label {
@@ -84,6 +92,7 @@ img {
     left: 40%;
     top: 40%;
     transform: scale(2);
+    z-index: 999;
 }
 
 
@@ -107,7 +116,7 @@ img {
     width: 6px;
     height: 18px;
     border-radius: 20%;
-    background: #fcf;
+    background: #00ff00;
 }
 .lds-spinner div:nth-child(1) {
     transform: rotate(0deg);
