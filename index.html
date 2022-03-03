@@ -21,8 +21,8 @@
 <body>
 <div id="app" class="main">
 
+    <div id="load-text" class="logo col-md-12"><a href="/">Загружаем 🎁 подарочки</a></div>
     <div id="load">
-        <div class="logo col-md-12"><a href="/">Загружаем 🎁 подарочки</a></div>
         <div class="load-spinner">
             <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
@@ -44,9 +44,6 @@
 
         <div class="panel question-block">
             <div class="panel-heading" v-if="!isFinish">{{questions[step].question}}</div>
-            <div v-else class="panel-heading text-center">
-                <h2>Ты {{result.title}}!</h2>
-            </div>
 
             <div class="panel-body">
                 <div class="funkyradio" v-for="(question, qIndex) in questions"
