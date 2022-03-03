@@ -20,7 +20,7 @@
 .funkyradio input[type="checkbox"]:empty ~ label {
     position: relative;
     line-height: 2.5em;
-    text-indent: 3.25em;
+    padding-left: 26%;
     margin-top: 2em;
     cursor: pointer;
     -webkit-user-select: none;
@@ -32,11 +32,13 @@
 .funkyradio input[type="radio"]:empty ~ label:before,
 .funkyradio input[type="checkbox"]:empty ~ label:before {
     position: absolute;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     bottom: 0;
     left: 0;
-    content: '';
+    content: '?';
     width: 2.5em;
     background: #D1D3D4;
     border-radius: 3px 0 0 3px;
@@ -62,6 +64,7 @@
 .funkyradio input[type="radio"]:checked ~ label:before,
 .funkyradio input[type="checkbox"]:checked ~ label:before {
     content: '\2714';
+    justify-content: unset;
     text-indent: .9em;
     color: #333;
     background-color: #ccc;
@@ -70,6 +73,7 @@
 .funkyradio .funkyradio-danger input[type="radio"]:checked ~ label:before,
 .funkyradio .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
     content: '\2718';
+    justify-content: unset;
 }
 
 
